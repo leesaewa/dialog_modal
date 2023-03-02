@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pure html modal with dialog</title>
+
+    <style>
+      body {
+        margin: 0 auto;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+      }
+
+      #openBtn {
+        border: 1px solid violet;
+      }
+      dialog::backdrop {
+      }
+    </style>
+  </head>
+  <body>
+    <h1>pure html modal with dialog</h1>
+
+    <main>
+      <button id="openBtn">Show modal</button>
+
+      <dialog>
+        Hello, World!
+
+        <form method="dialog">
+          <button value="confirm">Confirm</button>
+          <button value="close">Close</button>
+        </form>
+      </dialog>
+    </main>
+
+    <script>
+      const openBtn = document.getElementById("openBtn");
+      const dialog = document.querySelector("dialog");
+      //   const closeBtn = document.getElementById("closeBtn");
+
+      openBtn.addEventListener("click", () => {
+        dialog.showModal();
+      });
+
+      dialog.addEventListener("close", () => {
+        console.log(dialog.returnValue);
+      });
+
+      //   closeBtn.addEventListener("click", () => {
+      //     dialog.close();
+      //   });
+    </script>
+  </body>
+</html>
