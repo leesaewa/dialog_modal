@@ -7,6 +7,9 @@
     <title>pure html modal with dialog</title>
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
       html,
       body {
         height: 100%;
@@ -32,7 +35,53 @@
       #openBtn:hover {
         background-color: #e0c3fc;
       }
+
+      dialog:modal {
+        position: relative;
+        width: 50%;
+        height: 50%;
+        border: 2px solid #9599e2;
+        border-radius: 10px;
+      }
+
       dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+
+      form {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        bottom: 20px;
+        left: 20px;
+        width: 95%;
+      }
+      h2 {
+      }
+      form button {
+        width: 49%;
+        background-color: #e0c3fc;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 6px;
+        border: 1px solid #9599e2;
+        transition: all 0.5s ease-in-out;
+      }
+      form button[value="confirm"] {
+      }
+      form button[value="confirm"]:hover {
+        background-color: #9599e2;
+        color: #fff;
+      }
+
+      form button[value="close"] {
+        border-color: #ddd;
+        background-color: #ddd;
+      }
+      form button[value="close"]:hover {
+        background-color: #fff;
       }
     </style>
   </head>
@@ -43,7 +92,7 @@
       <button id="openBtn">Show modal</button>
 
       <dialog>
-        Hello, World!
+        <h2>Hello, World!</h2>
 
         <form method="dialog">
           <button value="confirm">Confirm</button>
